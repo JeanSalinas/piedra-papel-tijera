@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra Papel - Tijera</title>
+    <link rel="shortcut icon" href="./assets/icon/vs.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">🪨📄✂️Piedra Papel o Tijera✂️📄🪨</h1>
+        <div class="vidas">
+            <div><span class="corazon" id="vidasJugador"></span></div>
+            <div><span class="corazon" id="vidasMaquina"></span></div>
+        </div>
+        <p id="alerta">¡Haz tu elección!</p>
+        <div class="opciones">
+            <button class="btnOpciones"><img class="imgOp" onclick="combate('piedra')" src="./assets/images/piedra.png" alt="piedra"></button>
+            <button class="btnOpciones"><img class="imgOp" onclick="combate('papel')" src="./assets/images/papel.png" alt="papel"></button>
+            <button class="btnOpciones"><img class="imgOp" onclick="combate('tijera')" src="./assets/images/tijera.png" alt="tijera"></button>
+        </div>
+        <div class="elecciones">
+            <img class="eleccion" id="eleccionJugador" src="" alt="">
+            <img class="eleccion" id="eleccionMaquina" src="" alt="">
+        </div>
+        <p id="resultadoRonda"></p>
+        <p id="resultadoCombate"></p>
+        <div class="contenedorReiniciar">
+            <button id="btnReiniciar" onclick="reiniciarJuego()">Reiniciar Juego</button>
+        </div>
+        
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>

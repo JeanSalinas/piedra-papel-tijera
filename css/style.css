@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(125deg, rgb(160, 160, 160), rgb(200, 200, 200));
+    font-family: cursive;
+}
+
+.container {
+    text-align: center;
+}
+
+.titulo {
+    font-size: 7rem;
+    margin: 0;
+    -webkit-text-stroke: 2px rgb(151, 236, 232);
+    text-shadow: 5px 12px 10px rgb(13, 105, 105);
+    font-weight: bold;
+}
+
+.vidas {
+    display: flex;
+    justify-content: space-around;
+    margin: 1vh;
+    padding: 1vh;
+}
+
+.corazon {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+#alerta {
+    font-size: 4rem;
+    margin: 1vh;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    margin-top: 2vh;
+}
+
+.btnOpciones {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btnOpciones:hover {
+    transform: scale(1.1);
+    background-color: rgb(141, 141, 141);
+}
+
+.imgOp {
+    width: 10vw;
+    height: auto;
+}
+
+.eleccion {
+    margin-top: 3vh;
+    height: auto;
+    width: 5vw;
+}
+
+#resultadoRonda,
+#resultadoCombate {
+    font-size: 3rem;
+    margin-top: 3vh;
+}
+
+.contenedorReiniciar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+#btnReiniciar {
+    display: none;
+    cursor: pointer;
+    height: 6vh;
+    width: 12vw;
+    border: none;
+    border-radius: .5vw;
+    font-size: 2rem;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#btnReiniciar:hover {
+    box-shadow: 5px 10px rgb(2, 71, 29);
+    transform: scale(1.1);
+}
+
+@media (max-width: 1440px) {
+    .titulo {
+        font-size: 4rem;
+    }
+
+    .corazon {
+        font-size: 2rem;
+    }
+
+    #alerta {
+        font-size: 3rem;
+    }
+
+    .imgOp {
+        width: 12vw;
+    }
+
+    #resultadoRonda,
+    #resultadoCombate {
+        font-size: 2rem;
+    }
+
+    #btnReiniciar {
+        width: 10vw;
+        height: 6vh;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .titulo {
+        font-size: 2rem;
+    }
+
+    .corazon {
+        font-size: 1rem;
+    }
+
+    #alerta {
+        font-size: 1.5rem;
+    }
+
+    .imgOp {
+        width: 20vw;
+    }
+
+    #resultadoRonda,
+    #resultadoCombate {
+        font-size: 1.5rem;
+    }
+
+    #btnReiniciar {
+        width: 15vw;
+        height: 6vh;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .titulo {
+        font-size: 1.4rem;
+        -webkit-text-stroke: 1px rgb(151, 236, 232);
+        ;
+    }
+
+    .vidas {
+        display: flex;
+        justify-content: space-around;
+        margin: 1vh;
+        padding: 1vh;
+    }
+
+    .corazon {
+        font-size: .8rem;
+        font-weight: 500;
+    }
+
+    #alerta {
+        font-size: 1rem;
+        margin: 1vh;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .opciones {
+        flex-direction: column;
+    }
+
+    .imgOp {
+        width: 20vw;
+        height: auto;
+    }
+
+    .eleccion {
+        height: auto;
+        width: 10vw;
+    }
+
+    #resultadoRonda,
+    #resultadoCombate {
+        font-size: 1rem;
+    }
+
+    #btnReiniciar {
+        height: 6vh;
+        width: 20vw;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .titulo {
+        font-size: 1.2rem;
+        -webkit-text-stroke: 1px rgb(151, 236, 232);
+        ;
+    }
+
+    .imgOp {
+        width: 30vw;
+        height: auto;
+    }
+
+    .eleccion {
+        height: auto;
+        width: 10vw;
+    }
+
+    #resultadoRonda,
+    #resultadoCombate {
+        font-size: 1rem;
+    }
+
+    #btnReiniciar {
+        height: 6vh;
+        width: 25vw;
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 330px) {
+
+    .titulo {
+        font-size: 1rem;
+        -webkit-text-stroke: 1px rgb(151, 236, 232);
+        ;
+    }
+}
