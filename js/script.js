@@ -91,7 +91,7 @@ function activarBotones() {
 
 function reiniciarJuego() {
     alerta.textContent = 'Reiniciando...🔄'
-    activarBotones()
+    desactivarBotones()
     setTimeout(() => {
         vidasJ = 3
         vidasM = 3
