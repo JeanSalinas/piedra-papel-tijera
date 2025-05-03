@@ -1,108 +1,117 @@
-const vidasJugador = document.getElementById('vidasJugador');
-const vidasMaquina = document.getElementById('vidasMaquina');
-const alerta = document.getElementById('alerta');
-const eleccionJugador = document.getElementById('eleccionJugador');
-const eleccionMaquina = document.getElementById('eleccionMaquina');
-const resultadoRonda = document.getElementById('resultadoRonda');
-const resultadoCombate = document.getElementById('resultadoCombate');
+const vidasJugador = document.getElementById('vidasJugador')
+const vidasMaquina = document.getElementById('vidasMaquina')
+const inicioFin = document.getElementById('inicioFin')
+const imgEleccionJ = document.getElementById('eleccionJugador')
+const imgEleccionM = document.getElementById('eleccionMaquina')
+const resultado = document.getElementById('resultado')
 
-let vidasJ = 3;
+let vidasJ = 3; 
 let vidasM = 3;
 
-function actualizarVidas() {
-    vidasJugador.textContent = "Jugador:" + "♥️".repeat(vidasJ);
-    vidasMaquina.textContent = "Máquina:" + "♥️".repeat(vidasM);
+function actualizarVidas(){
+    vidasJugador.textContent = 'Jugador:' + '♥️'.repeat(vidasJ)
+    vidasMaquina.textContent = 'Máquina:' + '♥️'.repeat(vidasM)
 }
 
-const elecciones = ['piedra', 'papel', 'tijera'];
+const opcionesMaquina = ['piedra', 'papel' , 'tijera']
 
-function eleccionesMaquina() {
-    let eleccionMaq = Math.floor(Math.random() * 3)
-    return elecciones[eleccionMaq]
+function eleccionMaquina() {
+    let elecmaqu = Math.floor(Math.random()*3)
+    return opcionesMaquina[elecmaqu]
 }
 
-function combate(eleccionJ) {
-    let eleccionM = eleccionesMaquina()
-    resultadoRonda.textContent = '';
-
-    eleccionJugador.src = `./assets/images/${eleccionJ}.png`
-    eleccionMaquina.src = `./assets/images/${eleccionM}.png`
-    if (eleccionJ === eleccionM) {
-        resultadoRonda.textContent = 'Ronda empatada 🫱🏻‍🫲🏻'
-    } else if (
-        (eleccionJ === 'piedra' && eleccionM === 'tijera') ||
-        (eleccionJ === 'papel' && eleccionM === 'piedra') ||
-        (eleccionJ === 'tijera' && eleccionM === 'papel')
-    ) {
-        resultadoRonda.textContent = '¡Haz ganado esta ronda 👍🏻!'
-        vidasM--
-    } else {
-        resultadoRonda.textContent = '¡Haz perdido esta ronda 👎🏻!'
-        vidasJ--
-    }
-    actualizarVidas()
-    finCombate()
-}
-
-
-function obtenerMensaje(vidasJ, vidasM) {
-    if (vidasJ === 0) {
-        return 'Haz perdido el combate 😣'
-    } if (vidasM === 0) {
-        return 'Haz ganado el combate 🎉'
-    }
-    return ''
-}
-function finCombate() {
-    if (vidasJ === 0 || vidasM === 0) {
-        resultadoRonda.textContent = '';
-        resultadoCombate.innerText = obtenerMensaje(vidasJ, vidasM)
-        alerta.textContent = 'Fin del combate ⚔️'
-
-        if (vidasJ === 0) {
-            resultadoCombate.style.color = 'red'
+function finJuego(){
+    if(vidasJ === 0 || vidasM === 0){
+        desactivarBotones()
+        mostrarBtnReinicio()
+        resultado.classList.remove('victoria','derrota')
+        inicioFin.textContent = 'Fin de la batalla ⚔️'
+        if(vidasJ === 0){
+            resultado.classList.add('derrota')
+            resultado.textContent = '!Haz perdido la batalla! 😣'
         }
         if (vidasM === 0) {
-            resultadoCombate.style.color = 'green'
+            resultado.classList.add('victoria')
+            resultado.textContent = '¡Haz ganado la batalla! 🎉'
         }
-        desactivarBotones()
     }
 }
 
-function desactivarBotones() {
-    const botones = document.querySelectorAll('.btnOpciones')
+function desactivarBotones(){
+    const botones = document.querySelectorAll('.btnOpcion')
     botones.forEach(boton => {
         boton.disabled = true
-        boton.style.pointerEvents = 'none'
-        boton.style.opacity = '0.3'
+        boton.classList.add('btnDesactivado')
     })
-    document.getElementById('btnReiniciar').style.display = 'block'
 }
 
-function activarBotones() {
-    const botones = document.querySelectorAll('.btnOpciones')
+function activarBotones(){
+    const botones = document.querySelectorAll('.btnOpcion')
     botones.forEach(boton => {
         boton.disabled = false
-        boton.style.pointerEvents = 'auto'
-        boton.style.opacity = '1'
+        boton.classList.remove('btnDesactivado')
     })
-    document.getElementById('btnReiniciar').style.display='none'
 }
 
-function reiniciarJuego() {
-    alerta.textContent = 'Reiniciando...🔄'
+document.addEventListener('DOMContentLoaded',() => {
+    ocultarBtnReinicio()
+})
+
+function mostrarBtnReinicio(){
+    const reinicio = document.getElementById('btnReiniciarJuego')
+    reinicio.classList.remove('desactivado')
+    reinicio.classList.add('activado')
+}
+
+function ocultarBtnReinicio(){
+    const reinicio = document.getElementById('btnReiniciarJuego')
+    reinicio.classList.remove('activado')
+    reinicio.classList.add('desactivado')
+}
+
+function combate(eleccionJ){
+    let eleccionM = eleccionMaquina()
+
+    resultado.classList.remove('victoria','derrota')
+
+    imgEleccionJ.src = `./assets/images/${eleccionJ}.png`
+    imgEleccionM.src = `./assets/images/${eleccionM}.png`
+
+    if(eleccionJ === eleccionM){
+        resultado.textContent = '¡Ronda Empatada 🫱🏻‍🫲🏻!'
+    }
+    else if(
+        (eleccionJ === 'piedra' && eleccionM === 'tijera')||
+        (eleccionJ === 'papel' && eleccionM === 'piedra')||
+        (eleccionJ === 'tijera' && eleccionM === 'papel')
+    ){
+        vidasM--
+        resultado.classList.add('victoria')
+        resultado.textContent = '¡Haz ganado esta ronda 👌🏻!'
+    }else {
+        vidasJ--
+        resultado.classList.add('derrota')
+        resultado.textContent = '¡Haz perdido esta ronda 👎🏻!'
+    }
+    finJuego()
+    actualizarVidas()
+}
+
+function reiniciarJuego(){
+    vidasJ = 0; vidasM = 0
+    actualizarVidas()
+    inicioFin.textContent = 'Reiniciando...🔄️'
     desactivarBotones()
+    ocultarBtnReinicio()
+    resultado.textContent = ''
+    imgEleccionJ.src = ''
+    imgEleccionM.src = ''
     setTimeout(() => {
-        vidasJ = 3
-        vidasM = 3
+        vidasJ = 3; vidasM = 3
         actualizarVidas()
+        inicioFin.textContent = '¡Haz tu elección!'
         activarBotones()
-        eleccionJugador.src = ''
-        eleccionMaquina.src = ''
-        resultadoRonda.textContent = ''
-        resultadoCombate.textContent = ''
-        alerta.textContent = '¡Haz tu elección!'
+        resultado.textContent = ''
     }, 1000);
 }
-
 actualizarVidas()
