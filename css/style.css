@@ -4,260 +4,250 @@
     box-sizing: border-box;
 }
 
-html,
 body {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(125deg, rgb(160, 160, 160), rgb(200, 200, 200));
-    font-family: cursive;
-}
-
-.container {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    background-color: rgb(199, 197, 197);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .titulo {
-    font-size: 7rem;
-    margin: 0;
-    -webkit-text-stroke: 2px rgb(151, 236, 232);
-    text-shadow: 5px 12px 10px rgb(13, 105, 105);
+    font-size: 4.5rem;
+    margin-bottom: 1.5vh;
+    text-shadow: 1vh 1vh 1vh rgb(20, 106, 109);
+    -webkit-text-stroke: .3vh rgb(32, 231, 238);
+    color: black;
 }
 
 .vidas {
+    width: 30vw;
     display: flex;
-    justify-content: space-around;
-    margin: 1vh;
-    padding: 1vh;
+    justify-content: space-between;
+    margin: 2vh;
 }
 
-.corazon {
-    font-size: 2.5rem;
-    font-weight: 500;
+#inicioFin {
+    font-size: 2rem;
+    color: black;
+    text-shadow: 1vh 1vh 2vh rgb(0, 0, 0);
+    margin-bottom: 2vh;
 }
 
-#alerta {
-    font-size: 4rem;
-    margin: 1vh;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
 }
 
 .opciones {
+    text-align: center;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    gap: 2vw;
-    flex-wrap: wrap;
-    margin-top: 2vh;
 }
 
-.btnOpciones {
-    background-color: transparent;
-    border: none;
+.imgOpcion {
+    width: 12vw;
+}
+
+.btnOpcion {
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: none;
+    background-color: transparent;
+    transition-duration: .5s;
+    margin: 2vw;
 }
 
-.btnOpciones:hover {
+.btnOpcion:hover {
     transform: scale(1.1);
-    background-color: rgb(141, 141, 141);
-}
-
-.imgOp {
-    width: 10vw;
+    background-color: rgba(128, 128, 128, 0.199);
+    border-radius: 1vh;
 }
 
 .elecciones {
-    margin: 0 auto;
-    width: 20vw;
-    padding-top: 3vh;
+    width: 30vw;
+    margin-top: 2vh;
     display: flex;
-    justify-content: space-around;
-}
-
-/* imagen elección */
-.eleccion {
-    margin-top: 3vh;
-    width: 5vw;
-}
-
-.jugador {
+    justify-content: space-between;
     font-size: 1.5rem;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* resultados */
-#resultadoRonda,
-#resultadoCombate {
-    font-size: 3rem;
-    margin-top: 3vh;
+.imgEleccion {
+    width: 6vw;
 }
 
-/* Contenedor reiniciar */
-
-.contenedorReiniciar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5vh;
-}
-
-/* Botón reiniciar */
-
-#btnReiniciar {
-    display: none;
-    cursor: pointer;
-    height: 6vh;
-    width: 12vw;
-    border: none;
-    border-radius: .5vw;
+#resultado {
+    margin-top: 2vh;
     font-size: 2rem;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-#btnReiniciar:hover {
-    box-shadow: 5px 10px rgb(2, 71, 29);
+#btnReiniciarJuego {
+    cursor: pointer;
+    width: 8vw;
+    height: 5vh;
+    background-color: rgb(114, 209, 19);
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 1vh;
+    transition-duration: .5s;
+    margin-top: 2vh;
+}
+
+#btnReiniciarJuego:hover {
+    box-shadow: .5vh .5vh .5vh rgb(40, 117, 16);
     transform: scale(1.1);
 }
 
-/* ----- Diseño responsive -------*/
-
-@media (max-width: 1440px) {
-    .titulo {
-        font-size: 4rem;
-    }
-
-    .corazon {
-        font-size: 2rem;
-    }
-
-    #alerta {
-        font-size: 3rem;
-    }
-
-    .imgOp {
-        width: 12vw;
-    }
-
-    #resultadoRonda,
-    #resultadoCombate {
-        font-size: 2rem;
-    }
-
-    #btnReiniciar {
-        width: 10vw;
-        font-size: 1rem;
-    }
+.btnDesactivado{
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
-@media (max-width: 1024px) {
-    .titulo {
-        font-size: 2rem;
-    }
-
-    .corazon {
-        font-size: 1rem;
-    }
-
-    #alerta {
-        font-size: 1.5rem;
-    }
-
-    .jugador {
-        font-size: 1rem;
-    }
-
-    .imgOp {
-        width: 20vw;
-    }
-
-    #resultadoRonda,
-    #resultadoCombate {
-        font-size: 1.5rem;
-    }
-
-    #btnReiniciar {
-        width: 14vw;
-    }
+.activado{
+    display: block;
 }
 
-@media (max-width: 700px) {
+.desactivado {
+    display: none;
+}
 
+.victoria{
+    color: green;
+}
+
+.derrota{
+    color: red;
+}
+/* Modulo responsive */
+
+@media (max-width: 1215px) {
     .titulo {
-        font-size: 1.4rem;
-        -webkit-text-stroke: 1px rgb(151, 236, 232);
-        ;
+        font-size: 3.3rem;
     }
 
     .vidas {
-        margin: 1vh;
-        padding: 1vh;
-    }
-
-    .corazon {
-        font-size: .8rem;
-    }
-
-    #alerta {
-        font-size: 1.2rem;
-    }
-
-    .opciones {
-        flex-direction: column;
-    }
-
-    .imgOp {
-        width: 20vw;
-    }
-
-    .elecciones{
+        font-size: 1rem;
         width: 50vw;
     }
 
-    .eleccion {
+    .imgOpcion {
+        width: 13vw;
+    }
+
+    #btnReiniciarJuego {
         width: 10vw;
-    }
-
-    #resultadoRonda,
-    #resultadoCombate {
-        font-size: 1rem;
-    }
-
-    #btnReiniciar {
-        width: 23vw;
+        height: 7vh;
     }
 }
 
-@media (max-width: 380px) {
-
+@media (max-width: 770px) {
     .titulo {
-        font-size: 1.2rem;
+        font-size: 2.5rem;
     }
 
-    .imgOp {
-        width: 30vw;
-    }
-
-    .eleccion {
-        width: 10vw;
-    }
-
-    #btnReiniciar {
-        width: 25vw;
+    .vidas {
         font-size: .8rem;
+        width: 50vw;
+    }
+
+    #inicioFin {
+        font-size: 1.5rem;
+    }
+
+    .elecciones {
+        font-size: 1rem;
+    }
+
+    .imgOpcion {
+        width: 15vw;
+    }
+
+    .imgEleccion {
+        width: 9vw;
+    }
+
+    #btnReiniciarJuego {
+        width: 13vw;
+        height: 7vh;
     }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 690px) {
+    .titulo {
+        font-size: 2rem;
+        -webkit-text-stroke: .1vh rgb(32, 231, 238);
+    }
+    
+    .vidas {
+        font-size: .8rem;
+        width: 50vw;
+    }
 
+    #inicioFin {
+        font-size: 1.3rem;
+    }
+
+    .opciones{
+        flex-direction: column;
+    }
+
+    .imgOpcion {
+        width: 20vw;
+    }
+
+    .elecciones {
+        font-size: 1rem;
+    }
+
+    .imgOpcion {
+        width: 15vw;
+    }
+
+    #btnReiniciarJuego {
+        width: 13vw;
+        height: 7vh;
+    }
+}
+
+@media (max-width: 500px) {
     .titulo {
         font-size: 1rem;
+        -webkit-text-stroke: .05vh rgb(32, 231, 238);
+        text-shadow: .5vh .5vh .5vh rgb(20, 106, 109);
+    }
+
+    .vidas {
+        font-size: .7rem;
+        width: 70vw;
+    }
+
+    #inicioFin {
+        font-size: 1rem;
+    }
+
+    .elecciones {
+        width: 50vw;
+        font-size: .7rem;
+    }
+
+    .imgOpcion {
+        width: 20vw;
+    }
+
+    .imgEleccion {
+        width: 15vw;
+    }
+
+    #resultado {
+        font-size: 1rem;
+    }
+
+    #btnReiniciarJuego {
+        width: 30vw;
+        height: 7vh;
     }
 }
