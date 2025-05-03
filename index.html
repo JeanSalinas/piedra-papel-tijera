@@ -4,43 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piedra Papel - Tijera</title>
-    <link rel="shortcut icon" href="./assets/icon/vs.png" type="image/x-icon">
+    <title>Piedra - Papel- Tijera</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./assets/icon/vs.png" type="image/x-icon">
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="titulo">🪨📄✂️Piedra Papel o Tijera✂️📄🪨</h1>
+    <div class="contenedor">
+        <h1 class="titulo">🪨📄✂️PIEDRA-PAPEL-TIJERA✂️📄🪨</h1>
         <div class="vidas">
-            <div><span class="corazon" id="vidasJugador"></span></div>
-            <div><span class="corazon" id="vidasMaquina"></span></div>
+            <div>
+                <h3 id="vidasJugador"></h3>
+            </div>
+            <div>
+                <h3 id="vidasMaquina"></h3>
+            </div>
         </div>
-        <p id="alerta">¡Haz tu elección!</p>
+        <h2 id="inicioFin">¡Haz tu elección!</h2>
         <div class="opciones">
-            <button class="btnOpciones"><img class="imgOp" onclick="combate('piedra')" src="./assets/images/piedra.png"
-                    alt="piedra"></button>
-            <button class="btnOpciones"><img class="imgOp" onclick="combate('papel')" src="./assets/images/papel.png"
-                    alt="papel"></button>
-            <button class="btnOpciones"><img class="imgOp" onclick="combate('tijera')" src="./assets/images/tijera.png"
-                    alt="tijera"></button>
+            <button class="btnOpcion" onclick="combate('piedra')"><img class="imgOpcion"
+                    src="./assets/images/piedra.png" alt="Piedra"></button>
+            <button class="btnOpcion" onclick="combate('papel')"><img class="imgOpcion" src="./assets/images/papel.png"
+                    alt="Papel"></button>
+            <button class="btnOpcion" onclick="combate('tijera')"><img class="imgOpcion"
+                    src="./assets/images/tijera.png" alt="Tijera"></button>
         </div>
         <div class="elecciones">
-            <div>
-                <p class="jugador">Jugador</p>
-                <img class="eleccion" id="eleccionJugador" src="">
+            <div class="jugador">
+                <h4>Jugador:</h4>
+                <img class="imgEleccion" id="eleccionJugador">
             </div>
-            <div>
-                <p class="jugador">Máquina</p>
-                <img class="eleccion" id="eleccionMaquina" src="">
+            <div class="maquina">
+                <h4>Máquina:</h4>
+                <img class="imgEleccion" id="eleccionMaquina">
             </div>
         </div>
-        <p id="resultadoRonda"></p>
-        <p id="resultadoCombate"></p>
-        <div class="contenedorReiniciar">
-            <button id="btnReiniciar" onclick="reiniciarJuego()">Reiniciar Juego</button>
+        <h3 id="resultado"></h3>
+        <div class="reinicio">
+            <button id="btnReiniciarJuego" onclick="reiniciarJuego()">Reiniciar Juego</button>
         </div>
-
     </div>
     <script src="./js/script.js"></script>
 </body>
